@@ -1,0 +1,17 @@
+{
+    "name": "plugin/wp-book-v1",
+    "description": "plugin book",
+    "type": "project",
+    "license": "GPL2",
+    "authors": [
+        {
+            "name": "Vishwesh Soni",
+            "email": "vishweshsoni@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4":{"Inc\\":"./inc"}
+    }
+}

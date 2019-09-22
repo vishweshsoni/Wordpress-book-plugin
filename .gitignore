@@ -36,5 +36,6 @@ dwsync.xml
 .CVS
 intermediate
 .idea
-
+.vscode
 cache
+/vendor/
