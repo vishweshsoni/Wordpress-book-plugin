@@ -39,3 +39,4 @@ intermediate
 .vscode
 cache
 /vendor/
+/.vscode/
