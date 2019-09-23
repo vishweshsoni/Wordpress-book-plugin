@@ -7,7 +7,7 @@
  * @since 1.0.0
  * @package wp-bookv1
 */
-namespace Inc;
+namespace Inc\Base;
 
 class Deactivate
 {
