@@ -24,6 +24,14 @@
 
 defined('ABSPATH') or die('You are not allowed!');
 
+if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
+    require_once dirname(__FILE__) . '/vendor/autoload.php';
+}
+
+use Inc\Activate;
+use Inc\Deactivate;
+use Inc\Admin\AdminPages;
+
 if (!class_exists('WpBookV1')) {
     //main class
     class WpBookv1
@@ -41,7 +49,7 @@ if (!class_exists('WpBookV1')) {
             add_action('admin_enqueue_scripts', array($this, 'enqueue'));
             add_action('admin_menu', array($this, 'add_admin_pages'));
         }
-     
+
         public function enqueue()
         {
             // enqueue all our scripts and css files
@@ -49,19 +57,28 @@ if (!class_exists('WpBookV1')) {
             wp_enqueue_script('mypluginscript', plugins_url('/assets/myscript.js', __FILE__));
         }
 
-        public function add_admin_pages() {
-			add_menu_page( 'WP Book', 'WPBOOK', 'manage_options', 'wp_book', array( $this, 'admin_index' ), 'dashicons-book', 110 );
+        public function add_admin_pages()
+        {
+            add_menu_page('WP Book', 'WPBOOK', 'manage_options', 'wp_book_v1', array($this, 'admin_index'), 'dashicons-book', 110);
         }
 
+        public function admin_index()
+        {
+            require_once plugin_dir_path(__FILE__) . 'templates/admin.php';
+        }
 
-        public function admin_index() {
-			require_once plugin_dir_path( __FILE__ ) . 'templates/admin.php';
-		}
+         function activate()
+        {
+            Activate::activate();
+        }
+
     }
 }
 $wpbookv1 = new WpBookv1();
 $wpbookv1->register();
 // activation
-register_activation_hook( __FILE__, array( $wpbookv1, 'activate' ) );
+register_activation_hook(__FILE__, array($wpbookv1, 'activate'));
 // deactivation
-register_deactivation_hook( __FILE__, array( 'Deactivate', 'deactivate' ) );
+register_deactivation_hook(__FILE__, array('Deactivate', 'deactivate'));
+
+	
