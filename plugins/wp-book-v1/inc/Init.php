@@ -3,42 +3,47 @@
  * @package wp-book-v1
  */
 namespace Inc;
-//can not inherit for protection made it final
-final class Init{
 
-        /**
-         * Store all the class inside an array
-         * @return array full of services
-         * 
-         * 
-         */
-        public static function get_services(){
-                return [
-                        Pages\Admin::class,
-                        Base\Enqueue::class
-                ];
+//can not inherit for protection made it final
+final class Init
+{
+
+    /**
+     * Store all the class inside an array
+     * @return array full of services
+     *
+     *
+     */
+    public static function get_services()
+    {
+        return [
+            Pages\Admin::class,
+            Base\Enqueue::class,
+        ];
+    }
+    /**
+     * Loop through the classes ,initallize them and call register method if exist
+     * @return array
+     */
+    public static function register_services()
+    {
+        foreach (self::get_services() as $class) {
+            $service = self::instantiate($class);
+            if (method_exists($service, 'register')) {
+                $service->register();
+            }
         }
-        /**
-         * Loop through the classes ,initallize them and call register method if exist
-         * @return array 
-         */
-        public static function register_services(){
-             foreach(self::get_services() as $class){
-                    $service = self::instantiate($class);
-                    if(method_exists($service,'register')){
-                            $service->register();
-                    }
-             }
-        }
-        /**
-         * initiallze the class
-         * @param class $class  class from the service array
-         * @return class instance  new instance of the  class
-         */
-        private static function instantiate($class){
-                $service= new $class();
-                return $service;
-        }
+    }
+    /**
+     * initiallze the class
+     * @param class $class  class from the service array
+     * @return class instance  new instance of the  class
+     */
+    private static function instantiate($class)
+    {
+        $service = new $class();
+        return $service;
+    }
 }
 // use Inc\Activate;
 // use Inc\Deactivate;
@@ -92,5 +97,3 @@ final class Init{
 // register_activation_hook(__FILE__, array($wpbookv1, 'activate'));
 // // deactivation
 // register_deactivation_hook(__FILE__, array('Deactivate', 'deactivate'));
-
-	
