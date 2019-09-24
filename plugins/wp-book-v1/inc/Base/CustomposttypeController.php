@@ -19,6 +19,7 @@ class CustomposttypeController extends BaseController
     {
 
         add_action('init', array($this, 'activate'));
+        add_theme_support('post-thumbnails');
         $obj= new Example_Meta_Box();
         $obj->init();
     }
@@ -40,6 +41,7 @@ class CustomposttypeController extends BaseController
                 ),
                 'public' => true,
                 'has_archive' => true,
+                'supports' => array( 'title', 'editor','thumbnail' ),
 
             )
         );
@@ -51,7 +53,7 @@ class CustomposttypeController extends BaseController
             
     //     add_meta_box( 'meta-box-id', __( 'My Meta Box', 'textdomain' ), array( $this, 'render_meta_box_content' ), 'post' );
     // }
-        
+
     // public function render_meta_box_content()
     // { 
     //      die();

@@ -16,8 +16,11 @@ class Example_Meta_Box
                 
                 add_action('add_meta_boxes',array($this,'add'));
                 add_action( 'save_post', array($this,'save') );
-         
-        }
+                
+
+
+          }
+          
         public function add(){
                 
                 add_meta_box(
