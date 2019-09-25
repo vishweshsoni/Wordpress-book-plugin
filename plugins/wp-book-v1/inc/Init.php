@@ -19,6 +19,7 @@ final class Init
         return [
             Pages\Admin::class,
             Base\Enqueue::class,
+            Base\CustomtexnomyController::class,
             Base\CustomposttypeController::class 
         ];
     }
