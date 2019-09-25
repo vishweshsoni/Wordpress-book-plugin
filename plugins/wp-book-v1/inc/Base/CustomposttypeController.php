@@ -19,8 +19,14 @@ class CustomposttypeController extends BaseController
     {
 
         add_action('init', array($this, 'activate'));
+        add_action('admin_menu', array($this,'register_call'));
+
+        // add_action('init',array($this,'register_call'));
+        add_theme_support('post-thumbnails');
         $obj= new Example_Meta_Box();
         $obj->init();
+        
+        
     }
     /**
      * calling the register_post_type
@@ -40,10 +46,31 @@ class CustomposttypeController extends BaseController
                 ),
                 'public' => true,
                 'has_archive' => true,
+                'supports' => array( 'title', 'editor','thumbnail' ),
 
             )
         );
 
+    }
+    public function register_call()
+    {
+
+        add_submenu_page(
+            'edit.php?post_type=book',
+            __('Books Settings', 'wp-book-v1'),
+            __('Settings', 'wp-book-v1'),
+            'manage_options', //capabillities
+            'books-settings', //menu-slug
+            array($this,'books_ref_page_callback')
+        );
+    }
+    function books_ref_page_callback() { 
+        ?>
+        <div class="wrap">
+            <h1><?php _e( 'Books Shortcode Reference', 'wp-book-v1' ); ?></h1>
+            <p><?php _e( 'Helpful stuff here', 'wp-book-v1' ); ?></p>
+        </div>
+        <?php
     }
 
     // public function book_info_box()
@@ -51,7 +78,7 @@ class CustomposttypeController extends BaseController
             
     //     add_meta_box( 'meta-box-id', __( 'My Meta Box', 'textdomain' ), array( $this, 'render_meta_box_content' ), 'post' );
     // }
-        
+
     // public function render_meta_box_content()
     // { 
     //      die();

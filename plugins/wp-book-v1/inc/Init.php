@@ -19,6 +19,9 @@ final class Init
         return [
             Pages\Admin::class,
             Base\Enqueue::class,
+            // Base\SubmenuController::class,
+            Base\CustomtexnomyController::class,
+            Base\CustomtexnomyTagcontroller::class,
             Base\CustomposttypeController::class 
         ];
     }
