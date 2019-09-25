@@ -86,9 +86,16 @@ class CustomposttypeController extends BaseController
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
             </label>
             <select name="c_id">
-            <option value="">€</option>
+            <!-- <option value="">€</option>
             <option value="">$</option>
-            <option value="">₹</option>
+            <option value="">₹</option> -->
+            
+            <?php 
+                foreach($currency as $opt)
+                {   
+                    ?><option value=""><?php echo "$opt"?></option><?php
+                }
+            ?></option>
             </select>
             <br>
             
