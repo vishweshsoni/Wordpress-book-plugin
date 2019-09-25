@@ -22,6 +22,7 @@ class CustomposttypeController extends BaseController
         add_theme_support('post-thumbnails');
         $obj= new Example_Meta_Box();
         $obj->init();
+        
     }
     /**
      * calling the register_post_type

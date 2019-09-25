@@ -20,6 +20,7 @@ final class Init
             Pages\Admin::class,
             Base\Enqueue::class,
             Base\CustomtexnomyController::class,
+            Base\CustomtexnomyTagcontroller::class,
             Base\CustomposttypeController::class 
         ];
     }
