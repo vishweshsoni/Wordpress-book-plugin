@@ -41,7 +41,7 @@ class Example_Meta_Box
                 
                 
                 ?>
-                <form action="" method="post"> 
+                <form action="options.php" method="post"> 
                 
 
                 <label for="author_name">Author Name</label>
@@ -73,7 +73,9 @@ class Example_Meta_Box
 
 	}
 	public function save($post_id) {
-                     if( isset( $_POST['author_name'] ) ){
+      if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return post_id;
+
+     if( isset( $_POST['author_name'] ) ){
                         update_post_meta( sanitize_textarea_field($post_id      ),'author_name', 
                         esc_attr( $_POST['author_name'] ) );
                      }
