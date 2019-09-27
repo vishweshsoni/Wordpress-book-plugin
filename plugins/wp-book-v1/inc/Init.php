@@ -19,6 +19,7 @@ final class Init
         return [
             Pages\Admin::class,
             Base\Enqueue::class,
+            Base\ShortcodeController::class,
             Base\SubmenuController::class,
             Base\CustomtexnomyController::class,
             Base\CustomtexnomyTagcontroller::class,
