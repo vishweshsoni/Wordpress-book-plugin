@@ -42,7 +42,7 @@ class Example_Meta_Box
                 
                 ?>
                 <form action="options.php" method="post"> 
-                
+                <label for=<?php echo $post->ID?></label>
 
                 <label for="author_name">Author Name</label>
                 
@@ -64,7 +64,7 @@ class Example_Meta_Box
                 <label for="url">URL  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="text" name="url" class="regular-text" id="url" size="15" value=<?php echo $url; ?>>
                 <br>
-                <input type="submit" name="submit" class="regular-save" value="submit">              
+                
                 </form>
 
                 <?php
