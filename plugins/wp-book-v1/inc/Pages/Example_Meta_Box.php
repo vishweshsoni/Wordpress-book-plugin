@@ -41,30 +41,36 @@ class Example_Meta_Box
                 
                 
                 ?>
+                
                 <form action="options.php" method="post"> 
                 <label for=<?php echo $post->ID?></label>
-
-                <label for="author_name">Author Name</label>
-                
-                <input type="text" name="author_name" class="regular-text" id="author_name" size="15" value=<?php echo sanitize_text_field($author_name); ?>>
-                <br>
-                <label for="price">Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" name="price" class="regular-text" id="price" size="15" value= <?php echo $price; ?> >                
-                <br>                
-                <label for="publisher">Publisher&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label> 
-                <input type="text" name="publisher" class="regular-text" id="publisher" size="15" value=<?php echo $publisher; ?> >
-                <br>                
-                <label for="year">Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <table>
+                <tr>
+                <td><label for="author_name">Author Name</label></td>
+                <td><input type="text" name="author_name" class="regular-text" id="author_name" size="15" value=<?php echo sanitize_text_field($author_name); ?>></td>
+                </tr>
+                <tr>
+                <td><label for="price">Price </label></td>
+                <td><input type="text" name="price" class="regular-text" id="price" size="15" value= <?php echo $price; ?> ></td>
+                </tr>
+                <tr>
+                <td>
+                <label for="year">Year</label>
+                </td>
+                <td>
                 <input type="text" name="year" class="regular-text" id="year" size="15" value=<?php echo $year; ?>>
-                </label>
-                <br>              
-                <label for="edition">Edition&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" name="edition" class="regular-text" id="edition" size="15" value= <?php echo $edition; ?>>
-                <br>
-                <label for="url">URL  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" name="url" class="regular-text" id="url" size="15" value=<?php echo $url; ?>>
-                <br>
-                
+                </td>
+                </tr>
+                <tr>
+                  <td><label for="edition">Edition</label></td>   
+                  <td><input type="text" name="edition" class="regular-text" id="edition" size="15" value= <?php echo $edition; ?>></td>
+                </tr>
+                <tr>
+                <td>
+                <label for="url">URL</label></td>
+                <td><input type="text" name="url" class="regular-text" id="url" size="15" value=<?php echo $url; ?>></td>
+                </tr>                
+                </table>       
                 </form>
 
                 <?php
@@ -99,7 +105,6 @@ class Example_Meta_Box
                         update_post_meta( $post_id,'url', 
                         esc_attr( $_POST['url'] ) );
                      }
-                     
 	}
 
 }

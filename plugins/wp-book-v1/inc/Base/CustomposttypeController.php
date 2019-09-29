@@ -45,7 +45,7 @@ class CustomposttypeController extends BaseController
                 'public' => true,
                 'has_archive' => true,
                 'supports' => array('title', 'editor', 'thumbnail'),
-
+                // 'show_in_rest'=>true,
             )
         );
 
